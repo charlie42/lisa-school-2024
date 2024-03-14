@@ -1,0 +1,119 @@
+assessment_item_id,locale_code,slug,title
+1c25224a-ee7b-4a5a-92a0-25c333c91dbc,en,emotion_empathy,Empathy
+c425c650-97d5-4c61-9298-ade464716fdb,en,personality_responsibility-for-self-and-others,Responsibility for self and others
+95529d2d-d0a6-4c64-8f00-d22f49d945c5,en,behavior_habits-routines,Habits/Routines
+4f110dcb-8ea7-4014-85cd-9018660baa95,en,behavior_anger-management,Anger Management
+6967830b-4b69-4a41-8472-711c93842de5,en,communication_expressive-language,Expressive Language
+826a1b6b-6e7e-4b38-ae12-fe9b97a590c6,en,communication_receptive-language,Receptive Language
+bc5cb240-83b8-4546-8545-4ce8d9e512e5,en,communication_speech-quantity,Speech Quantity
+d33e35d1-0ac3-4304-b44b-64b63010b41a,en,communication_speech-quality,Speech Quality
+e6513d22-6c1c-4857-a899-775ea5fc3c2b,en,social-function_social-engagement,Social Engagement
+731e573a-1c47-4a98-8299-60ed3e423f32,en,social-function_social-communication,Social Communication
+b4863fcf-d00b-4940-82da-a1ae303eb746,en,social-function_social-cooperation,Social Cooperation
+864c13e0-7531-497e-b71b-8b930ca7fc5a,en,social-function_tolerance,Tolerance
+b4863fcf-d00b-4940-82da-a1ae303eb746,fr,social-function-social-cooperation-fr,Coopération sociale
+4eb0ff34-849f-44ca-946c-2f0e491a0362,en,behavior_self-control,Self-Control
+2a1f1729-0cae-4e68-bd36-a02f488e4b1a,en,behavior_compliance,Compliance
+b5b0c776-741b-4c1a-8d41-0857fb3eb300,en,behavior_obsessive-thoughts,Obsessive Thoughts
+64c23e9d-8a81-44f8-8ea2-42d9e2777a4c,en,behavior_assertiveness,Assertiveness
+6abe98d3-3c3a-4c45-b7ea-5b36fd919404,en,behavior_risk-taking,Risk Taking
+36b52044-1d05-42e5-bf3d-8c9cbe1259a2,en,behavior_activity-level,Activity Level
+431af08d-efd0-49b8-819d-c868fc1328e9,en,behavior_play,Play
+a6c3a971-2201-4527-bc45-7933d5911e82,en,emotion_emotional-regulation-and-reactivity,Emotion Regulation and Reactivity
+5621d919-9f75-48f4-ba82-0e052c69cb32,en,emotion_worries-anxiety,Worries/Anxiety
+2d01ce4e-ae1e-41a4-8bf3-6b1c91e251a9,en,emotion_attachment,Attachment
+bc2aea97-8871-4f62-ab96-1f94ccad3413,en,emotion_irritability,Irritability
+a801cb16-49a6-40d3-b9ed-b87831bdff45,en,emotion_stress-management,Stress Management
+a83eb39a-3e24-451a-a7ad-1192f7c58ecc,en,personality_self-confidence,Self Confidence
+59694344-3360-4f1a-a0f6-1e2f29286920,en,personality_creativity,Creativity
+f5743747-ed78-4ab4-a3b3-b74eadd28693,en,personality_integrity-and-honesty,Integrity and Honesty
+42f9b35d-9a58-4ab7-aa00-b0eb5f0d86f5,en,personality_perseverance,Perseverance
+f2b02253-7a43-44da-a9da-9fa83433ef8b,en,personality_future-outlook,Future Outlook
+4f351200-e1a9-4ddb-b159-b4187909fb20,en,cognition_attention-concentration,Attention/Concentration
+f847bfdc-eb45-4e3b-a5b2-890d5c44d1a8,en,cognition_planning-and-organization,Planning and Organization
+7733fc77-ec8c-4570-acd0-96527a559628,en,cognition_memory-recall,Memory/Recall
+3d6539fb-c4ec-408c-a8a4-cb6c97618808,en,cognition_abstract-thinking,Abstract Thinking
+e328183c-1171-40f8-b272-5b300f4f65bc,en,cognition_thinking-speed,Thinking Speed
+c1a1ccc4-5c79-4899-8f59-11c69360b6eb,en,cognition_self-image,Self-Image
+534d90ce-267a-4f9b-a883-4752784bfcde,en,cognition_task-completion,Task Completion
+047bec0f-5539-46a3-a82f-92a8642ebbeb,en,learning-and-acquisition-of-knowledge-and-skills_reading,Reading
+80a0f0f9-1335-4677-a023-27607fed20c8,en,learning-and-acquisition-of-knowledge-and-skills_writing,Writing
+cfe6c283-9fd7-41ac-a432-4240cb643fc9,en,learning-and-acquisition-of-knowledge-and-skills_math-arithmetic,Mathematics
+dcc5539d-7ac3-42ad-85b5-c4b488d7e9ed,en,learning-and-acquisition-of-knowledge-and-skills_learning-strategies,Learning Strategies
+dbf91373-b2e3-4e27-afcb-0623c64d09f0,en,learning-and-acquisition-of-knowledge-and-skills_academic-motivation,Academic Motivation
+9d6fd8cf-e721-4cf2-b405-22c687b6022f,en,learning-and-acquisition-of-knowledge-and-skills_gross-motor-skills,Gross Motor Skills
+3a782e88-c2a2-41af-9c05-63ed35d06095,en,learning-and-acquisition-of-knowledge-and-skills_fine-motor-skills,Fine Motor Skills
+bb6efdf1-644c-4185-9006-bacf8e06cba0,en,somatic-and-sensory-functions_eating,Eating
+78794634-3963-4c26-a93a-3a4d8023a506,en,somatic-and-sensory-functions_sexual-identity-behavior,Sexual/Gender Identity and Behavior
+325e7fbb-042d-4776-80d1-272f5b1a0e01,en,somatic-and-sensory-functions_sensory-reactivity,Sensory Reactivity
+bdb653ca-e176-446c-af56-2bc7b16ad020,en,daily-routines_morning-routine,Morning Routine
+2d0bb72d-bec1-40de-804b-f9aadd4e8568,en,daily-routines_transitions,Transitions
+51bc0b78-28d0-420e-bba2-d2b0faf41eff,en,daily-routines_screen-time,Screen Time
+f9ea963a-a04d-48d2-a137-4601eeef919b,en,other-special-issues_substance-use,Substance Use
+81491f14-036c-4872-9098-47cef413384a,en,other-special-issues_trauma-history,Trauma History
+a0ab7f9b-1696-4dc5-9cda-dc2d09534a84,en,other-special-issues_physically-harms-self,Physically Harms Self
+eb3e74e3-7ed6-40f1-8a2f-f0549ba896f4,en,other-special-issues_physically-or-emotionally-harms-others,Physically or Emotionally Harms Others
+15dd6523-b470-4be7-a0cc-1a1413d6d967,en,other-special-issues_tics-and-other-atypical-movements,Tics and other Atypical Movements are present
+912f5b2d-1a0d-4186-acc4-63617022ad22,en,other-special-issues_sleep,Sleep Disturbance
+50d89f22-b08a-4a47-a23b-8dbf6124e091,en,other-special-issues_bullying,Bullying
+71d3b3a5-3b95-45d4-999c-749e0e97e98b,en,other-special-issues_self-care-hygiene,Inadequate Self-Care/Hygiene
+078a9594-9608-4e10-bad0-a15ca5699764,en,other-special-issues_perception-of-reality,Distorted Perception of Reality
+3d6539fb-c4ec-408c-a8a4-cb6c97618808,fr,cognition-pensee-abstraite,Pensée abstraite
+dbf91373-b2e3-4e27-afcb-0623c64d09f0,fr,motivation-academique,Motivation académique
+36b52044-1d05-42e5-bf3d-8c9cbe1259a2,fr,niveau-activite,Niveau d’activité
+4f110dcb-8ea7-4014-85cd-9018660baa95,fr,gestion-de-la-colere,Gestion de la colère
+95529d2d-d0a6-4c64-8f00-d22f49d945c5,fr,behavior-habits-routines-fr,Habitudes et routines
+64c23e9d-8a81-44f8-8ea2-42d9e2777a4c,fr,behavior-assertiveness-fr,Affirmation de soi
+2d01ce4e-ae1e-41a4-8bf3-6b1c91e251a9,fr,emotion-attachment-fr,Attachement
+4f351200-e1a9-4ddb-b159-b4187909fb20,fr,cognition-attention-concentration-fr,Attention et concentration
+50d89f22-b08a-4a47-a23b-8dbf6124e091,fr,other-special-issues-bullying-fr,Harcèlement
+2a1f1729-0cae-4e68-bd36-a02f488e4b1a,fr,behavior-compliance-fr,Respect du cadre
+59694344-3360-4f1a-a0f6-1e2f29286920,fr,personality-creativity-fr,Créativité
+078a9594-9608-4e10-bad0-a15ca5699764,fr,other-special-issues-perception-of-reality-fr,Perception altérée de la réalité
+b5b0c776-741b-4c1a-8d41-0857fb3eb300,fr,behavior-obsessive-thoughts-fr,Pensées obsédantes
+bb6efdf1-644c-4185-9006-bacf8e06cba0,fr,somatic-and-sensory-functions-eating-fr,Alimentation
+a6c3a971-2201-4527-bc45-7933d5911e82,fr,emotion-emotional-regulation-and-reactivity-fr,Régulation et réactivité émotionnelle
+1c25224a-ee7b-4a5a-92a0-25c333c91dbc,fr,emotion-empathy-fr,Empathie
+6967830b-4b69-4a41-8472-711c93842de5,fr,communication-expressive-language-fr,Langage expressif
+3a782e88-c2a2-41af-9c05-63ed35d06095,fr,learning-and-acquisition-of-knowledge-and-skills-fine-motor-skills-fr,Motricité fine
+f2b02253-7a43-44da-a9da-9fa83433ef8b,fr,personality-future-outlook-fr,Perspective sur l’avenir
+9d6fd8cf-e721-4cf2-b405-22c687b6022f,fr,learning-and-acquisition-of-knowledge-and-skills-gross-motor-skills-fr,Motricité globale
+bc2aea97-8871-4f62-ab96-1f94ccad3413,fr,emotion-irritability-fr,Irritabilité
+7733fc77-ec8c-4570-acd0-96527a559628,fr,cognition-memory-recall-fr,Mémoire et rappel
+cfe6c283-9fd7-41ac-a432-4240cb643fc9,fr,learning-and-acquisition-of-knowledge-and-skills-math-arithmetic-fr,Mathématiques
+dcc5539d-7ac3-42ad-85b5-c4b488d7e9ed,fr,learning-and-acquisition-of-knowledge-and-skills-learning-strategies-fr,Stratégies d’apprentissage
+047bec0f-5539-46a3-a82f-92a8642ebbeb,fr,learning-and-acquisition-of-knowledge-and-skills-reading-fr,Lecture
+42f9b35d-9a58-4ab7-aa00-b0eb5f0d86f5,fr,personality-perseverance-fr,Persévérance
+a83eb39a-3e24-451a-a7ad-1192f7c58ecc,fr,personality-self-confidence-fr,Confiance en soi
+e6513d22-6c1c-4857-a899-775ea5fc3c2b,fr,social-function-social-engagement-fr,Engagement social
+731e573a-1c47-4a98-8299-60ed3e423f32,fr,social-function-social-communication-fr,Communication sociale
+d33e35d1-0ac3-4304-b44b-64b63010b41a,fr,communication-speech-quality-fr,Qualité de la parole
+864c13e0-7531-497e-b71b-8b930ca7fc5a,fr,social-function-tolerance-fr,Tolérance
+826a1b6b-6e7e-4b38-ae12-fe9b97a590c6,fr,communication-receptive-language-fr,Langage réceptif
+bc5cb240-83b8-4546-8545-4ce8d9e512e5,fr,communication-speech-quantity-fr,Quantité de parole
+c425c650-97d5-4c61-9298-ade464716fdb,fr,personality-responsibility-for-self-and-others-fr,Responsabilité envers soi-même et les autres
+431af08d-efd0-49b8-819d-c868fc1328e9,fr,behavior-play-fr,Jeu
+f847bfdc-eb45-4e3b-a5b2-890d5c44d1a8,fr,cognition-planning-and-organization-fr,Planification et organisation
+534d90ce-267a-4f9b-a883-4752784bfcde,fr,cognition-task-completion-fr,Achèvement de tâches
+e328183c-1171-40f8-b272-5b300f4f65bc,fr,cognition-thinking-speed-fr,Vitesse de réflexion
+c1a1ccc4-5c79-4899-8f59-11c69360b6eb,fr,cognition-self-image-fr,Image de soi
+bdb653ca-e176-446c-af56-2bc7b16ad020,fr,daily-routines-morning-routine-fr,Routine matinale
+51bc0b78-28d0-420e-bba2-d2b0faf41eff,fr,daily-routines-screen-time-fr,Temps d’écran
+2d0bb72d-bec1-40de-804b-f9aadd4e8568,fr,daily-routines-transitions-fr,Transitions
+80a0f0f9-1335-4677-a023-27607fed20c8,fr,learning-and-acquisition-of-knowledge-and-skills-writing-fr,Écriture
+f5743747-ed78-4ab4-a3b3-b74eadd28693,fr,personality-integrity-and-honesty-fr,Intégrité et honnêteté
+5621d919-9f75-48f4-ba82-0e052c69cb32,fr,emotion-worries-anxiety-fr,Inquiétude et anxiété
+a801cb16-49a6-40d3-b9ed-b87831bdff45,fr,emotion-stress-management-fr,Gestion du stress
+a0ab7f9b-1696-4dc5-9cda-dc2d09534a84,fr,other-special-issues-physically-harms-self-fr,Automutilation
+eb3e74e3-7ed6-40f1-8a2f-f0549ba896f4,fr,other-special-issues-physically-or-emotionally-harms-others-fr,Atteinte à l’intégrité physique ou émotionnelle d’autrui
+f9ea963a-a04d-48d2-a137-4601eeef919b,fr,other-special-issues-substance-use-fr,Usage de substances
+81491f14-036c-4872-9098-47cef413384a,fr,other-special-issues-trauma-history-fr,Traumatismes psychiques
+6abe98d3-3c3a-4c45-b7ea-5b36fd919404,fr,behavior-risk-taking-fr,Prise de risque
+4eb0ff34-849f-44ca-946c-2f0e491a0362,fr,behavior-self-control-fr,Maîtrise de soi
+912f5b2d-1a0d-4186-acc4-63617022ad22,fr,other-special-issues-sleep-fr,Troubles du sommeil
+325e7fbb-042d-4776-80d1-272f5b1a0e01,fr,somatic-and-sensory-functions-sensory-reactivity-fr,Réactivité sensorielle
+78794634-3963-4c26-a93a-3a4d8023a506,fr,somatic-and-sensory-functions-sexual-identity-behavior-fr,Comportement et identité de sexe et de genre
+5dc9f49a-35ce-4160-b354-91cbfe47945b,en,toileting,Toileting Problems
+71d3b3a5-3b95-45d4-999c-749e0e97e98b,fr,other-special-issues-self-care-hygiene-fr,Hygiène/Propreté inadaptée
+15dd6523-b470-4be7-a0cc-1a1413d6d967,fr,other-special-issues-tics-and-other-atypical-movements-fr,Tics et autres mouvements atypiques
+5dc9f49a-35ce-4160-b354-91cbfe47945b,fr,toileting-fr,Problèmes de toilettes
