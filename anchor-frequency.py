@@ -11,7 +11,7 @@ print(df.describe()[["emotion_stress-management",
                      "cognition_thinking-speed"]].T)
 
 # Only keep columns with item responses
-df = df.drop(["Entry ID","Actor type","Subject ID","Study ID","Group ID","Time","Subject-Respondent Pair ID"], axis=1)
+df = df.drop(["Entry ID","Actor type","Subject ID","Study ID","Group ID","Time","Respondent Hash"], axis=1)
 # Drop binary cols
 binary_cols = [x for x in df.columns if "other-special-issues" in x]+["toileting"] 
 df = df.drop(binary_cols, axis=1)
