@@ -71,6 +71,7 @@ class FACETSFormatter():
             id_mapping["dislay_label"]
         )
         except FileNotFoundError:
+            print("No id_mapping_facets.csv file found, keeping Study ID empty")
             self.df["Study ID"] = np.nan
 
     def _transpose_items(self):
