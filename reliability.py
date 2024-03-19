@@ -47,26 +47,50 @@ def id_overlapping_teachers_and_students(data, n_teachers_overlap):
 
     return teachers, students
 
+def get_icc_row(col, data, target, raters):
+    icc = pg.intraclass_corr(
+        data=data, 
+        targets=target, 
+        raters=raters, 
+        ratings=col,
+        nan_policy='omit'
+    ).set_index('Type').loc["ICC1"][["ICC", "pval", "CI95%"]]
+    return [col, icc["ICC"], icc["pval"], icc["CI95%"]]
+
 def irr_icc(data, facets_cols, n_teachers_overlap, filename_base):
     teachers, students = id_overlapping_teachers_and_students(data, n_teachers_overlap)
     data = data[(data["Subject ID"].isin(students)) & (data["Respondent Hash"].isin(teachers))]
-
-    print(len(data["Respondent Hash"].unique()))
-    print(len(data["Subject ID"].unique()))
     
     rows = []
     for col in facets_cols:
         print(col)
-        icc = pg.intraclass_corr(
-            data=data, 
-            targets="Subject ID", 
-            raters="Respondent Hash", 
-            ratings=col).set_index('Type').loc["ICC1"][["ICC", "pval", "CI95%"]]
-        rows.append([col, icc["ICC"], icc["pval"], icc["CI95%"]])
+        row = get_icc_row(col, data, target = "Subject ID", raters="Respondent Hash")
+        rows.append(row)
     icc_df = pd.DataFrame(rows, columns = ["Item", "ICC", "PVal", "CI95"]).sort_values("PVal")
     icc_df.to_csv(f"output/irr_{filename_base}.csv", float_format='%.3f')
     return icc_df
 
+def transform_for_trr(teacher_data):
+    # Create new column for administration count - first or second    
+    teacher_data["N Admin"] = teacher_data.groupby("Subject ID").cumcount()+1
+    return teacher_data
+
+def trr_icc(data, facets_cols, filename_base):
+    # Calculate TRR for each teacher
+    teachers = list(data["Respondent Hash"].unique())
+    
+    for i, teacher in enumerate(teachers):
+        teacher_data = data[data["Respondent Hash"] == teacher]
+        teacher_data = transform_for_trr(teacher_data)
+        if len(teacher_data["Subject ID"].unique()) >= 22:
+            print(teacher, len(teacher_data["Subject ID"].unique()))
+            rows = []
+            for col in facets_cols:
+                print(col)
+                row = get_icc_row(col, teacher_data, target = "Subject ID", raters="N Admin")
+                rows.append(row)
+            icc_df = pd.DataFrame(rows, columns = ["Item", "ICC", "PVal", "CI95"]).sort_values("PVal")
+            icc_df.to_csv(f"output/trr_{filename_base}_teacher{i}.csv", float_format='%.3f')
 
 if __name__ == "__main__":
 
@@ -77,7 +101,8 @@ if __name__ == "__main__":
         "Entry ID", "Actor type", "Subject ID", "Study ID", "Group ID", "Time", "Respondent Hash"
     ]]
 
-    irr_icc(clichy, facets_cols, n_teachers_overlap=3, filename_base="clichy")
-    irr_icc(suger, facets_cols, n_teachers_overlap=4, filename_base="suger")
+    #irr_icc(clichy, facets_cols, n_teachers_overlap=3, filename_base="clichy")
+    #irr_icc(suger, facets_cols, n_teachers_overlap=4, filename_base="suger")
 
-    
+    trr_icc(clichy, facets_cols, filename_base="clichy")    
+    #trr_icc(suger, facets_cols, filename_base="suger")    
