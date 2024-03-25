@@ -101,4 +101,24 @@ if __name__ == "__main__":
     print_stats(suger)
     explore(suger)
     check_protocol(suger, 4)
+
+    # Check IRR sample size for teachers with good trr (created in trr.py)
+    try:
+        good_trr_clichy = pd.read_csv("data/clichy_good_trr.csv")
+        good_trr_suger = pd.read_csv("data/suger_good_trr.csv")
+
+        print("Clichy good TRR:")
+        print_stats(good_trr_clichy)
+        explore(good_trr_clichy)
+        check_protocol(good_trr_clichy, 3)
+        check_protocol(good_trr_clichy, 2)
+
+        print("Suger good TRR:")
+        print_stats(good_trr_suger)
+        explore(good_trr_suger)
+        check_protocol(good_trr_suger, 4)
+        check_protocol(good_trr_suger, 3)
+    except Exception as e: 
+        print(e)
+
     

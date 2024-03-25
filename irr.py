@@ -63,7 +63,6 @@ def irr_icc(data, facets_cols, n_teachers_overlap, filename_base):
     
     rows = []
     for col in facets_cols:
-        print(col)
         row = get_icc_row(
             col, 
             data, 
@@ -71,7 +70,7 @@ def irr_icc(data, facets_cols, n_teachers_overlap, filename_base):
             raters="Respondent Hash")
         rows.append(row)
     icc_df = pd.DataFrame(rows, columns = ["Item", "ICC", "PVal", "CI95"]).sort_values("PVal")
-    icc_df.to_csv(f"output/irr_{filename_base}.csv", float_format='%.3f')
+    icc_df.to_csv(f"output/reliability/irr_{filename_base}.csv", float_format='%.3f')
     return icc_df
 
 
@@ -86,3 +85,15 @@ if __name__ == "__main__":
 
     irr_icc(clichy, facets_cols, n_teachers_overlap=3, filename_base="clichy")
     irr_icc(suger, facets_cols, n_teachers_overlap=4, filename_base="suger")
+
+    # Get IRR for only good-TRR teachers (files created in trr.py)
+    good_trr_clichy = pd.read_csv("data/clichy_good_trr.csv")
+    good_trr_suger = pd.read_csv("data/suger_good_trr.csv")
+
+    print(len(clichy["Respondent Hash"].unique()), len(good_trr_clichy["Respondent Hash"].unique()))
+    print(len(suger["Respondent Hash"].unique()), len(good_trr_suger["Respondent Hash"].unique()))
+
+    irr_icc(clichy, facets_cols, n_teachers_overlap=2, filename_base="clichy_good_trr")
+    irr_icc(suger, facets_cols, n_teachers_overlap=3, filename_base="suger_good_trr")
+
+
