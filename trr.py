@@ -1,6 +1,7 @@
 import pandas as pd 
 import pingouin as pg
 from pathlib import Path
+import random
 
 def keep_only_rated_twice(df):
     df["Admin Cumul Count"] = df.groupby(["Subject ID", "Respondent Hash"]).cumcount()+1
@@ -14,24 +15,25 @@ def keep_only_rated_twice(df):
     
     return rated_twice
 
-def get_icc_row(col, data, target, raters):
+def get_icc_row(col, data, target, raters, type):
     icc = pg.intraclass_corr(
         data=data, 
         targets=target, 
         raters=raters, 
         ratings=col,
         nan_policy='omit'
-    ).set_index('Type').loc[f"ICC2k"][["ICC", "pval", "CI95%"]]
+    ).set_index('Type').loc[type][["ICC", "pval", "CI95%"]]
     return [col, icc["ICC"], icc["pval"], icc["CI95%"]]
 
-def get_icc_df(data, facets_cols, raters_col):
+def get_icc_df(data, facets_cols, raters_col, type):
     rows = []
     for col in facets_cols:
         row = get_icc_row(
             col, 
             data, 
             target="Subject ID", 
-            raters=raters_col)
+            raters=raters_col,
+            type=type)
         rows.append(row)
     icc_df = pd.DataFrame(rows, columns = ["Item", "ICC", "PVal", "CI95"]).sort_values("PVal")
     return icc_df
@@ -54,7 +56,7 @@ def trr_icc_per_teacher(data, facets_cols, filename_base):
         teacher_data = transform_for_trr_per_teacher(teacher_data)
         if len(teacher_data["Subject ID"].unique()) >= 10:
             print(filename_base, i, len(teacher_data["Subject ID"].unique()))
-            icc_df = get_icc_df(teacher_data, facets_cols, raters_col="Admin Cumul Count")
+            icc_df = get_icc_df(teacher_data, facets_cols, raters_col="Admin Cumul Count", type="ICC3")
             icc_df.to_csv(f"output/reliability/trr_per_teacher/{filename_base}_teacher{i}.csv", float_format='%.3f')
             icc_dfs[teacher] = icc_df
 
@@ -77,13 +79,25 @@ def save_data_with_high_trr(data, teacher_icc_dfs, filename_base="clichy"):
     good_icc_teachers_data = data[data["Respondent Hash"].isin(good_icc_teachers)]
     good_icc_teachers_data.to_csv(f"data/{filename_base}_good_trr.csv")
 
+def keep_random_teacher(student_data):
+    # If rated by multiple teachers, take rows from a random teacher
+    teachers = student_data["Respondent Hash"].unique()
+    if len(teachers) > 1: # If rated by multipel teachers
+        random_teacher = random.choice(teachers)
+        return student_data[student_data["Respondent Hash"] == random_teacher]
+    else:
+        student_data
+
 def transform_for_trr_across_teachers(data):
-    pass
+    # For each student, if rated by multiple teachers, take random teacher
+    data = data.groupby("Subject ID").apply(keep_random_teacher).reset_index(drop=True)
+    return data
 
 def trr_icc_across_teachers(data, facets_cols, filename_base):
     data = transform_for_trr_across_teachers(data)
-
-
+    print("DEBUG\n", data)
+    icc_df = get_icc_df(data, facets_cols, raters_col="Admin Cumul Count", type="ICC3")
+    icc_df.to_csv(f"output/reliability/trr_per_teacher/{filename_base}_across_teachers.csv", float_format='%.3f')
 
 if __name__ == "__main__":
 
