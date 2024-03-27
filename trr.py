@@ -81,12 +81,13 @@ def save_data_with_high_trr(data, teacher_icc_dfs, filename_base="clichy"):
 
 def keep_random_teacher(student_data):
     # If rated by multiple teachers, take rows from a random teacher
+    print("DEBUG keep_random_teacher 1", student_data)
     teachers = student_data["Respondent Hash"].unique()
     if len(teachers) > 1: # If rated by multipel teachers
         random_teacher = random.choice(teachers)
         return student_data[student_data["Respondent Hash"] == random_teacher]
     else:
-        student_data
+        return student_data
 
 def transform_for_trr_across_teachers(data):
     # For each student, if rated by multiple teachers, take random teacher
@@ -107,26 +108,30 @@ def trr_across_teachers_both_schools(clichy, suger, facets_cols):
 
 if __name__ == "__main__":
 
-    clichy = pd.read_csv("data/clichy_formatted.csv", index_col=0)
-    suger = pd.read_csv("data/suger_formatted.csv", index_col=0)
+    datasets = {
+        "clichy": pd.read_csv("data/clichy_formatted.csv", index_col=0),
+        "clichy_primary": pd.read_csv("data/clichy_primary_formatted.csv", index_col=0),
+        "clichy_middle": pd.read_csv("data/clichy_middle_formatted.csv", index_col=0),
+        "suger": pd.read_csv("data/suger_formatted.csv", index_col=0)
+    }
 
     save_path = "output/reliability/"
     Path(save_path).mkdir(parents=True, exist_ok=True)
 
-    facets_cols = [x for x in clichy.columns if x not in [
+    facets_cols = [x for x in datasets["clichy"].columns if x not in [
         "Entry ID", "Actor type", "Subject ID", "Study ID", "Group ID", "Time", "Respondent Hash", "Grade"
     ]]
 
-    clichy = keep_only_rated_twice(clichy)
-    suger = keep_only_rated_twice(suger)
+    for dataset_name in datasets:
+        data = datasets[dataset_name]
 
-    trr_icc_per_teacher_clichy_dfs = trr_icc_per_teacher(clichy, facets_cols, filename_base="clichy")    
-    trr_icc_per_teacher_suger_dfs = trr_icc_per_teacher(suger, facets_cols, filename_base="suger")    
+        data = keep_only_rated_twice(data)
 
-    save_data_with_high_trr(clichy, trr_icc_per_teacher_clichy_dfs, filename_base="clichy")
-    save_data_with_high_trr(suger, trr_icc_per_teacher_suger_dfs, filename_base="suger")
+        trr_icc_per_teacher_dfs = trr_icc_per_teacher(data, facets_cols, filename_base=dataset_name)    
 
-    trr_icc_across_teachers(clichy, facets_cols, filename_base="clichy")    
-    trr_icc_across_teachers(suger, facets_cols, filename_base="suger")   
+        save_data_with_high_trr(data, trr_icc_per_teacher_dfs, filename_base=dataset_name)
 
-    trr_across_teachers_both_schools(clichy, suger, facets_cols) 
+        print("DEBUG 1", dataset_name, data)
+        trr_icc_across_teachers(data, facets_cols, filename_base=dataset_name)    
+        
+    trr_across_teachers_both_schools(datasets["clichy"], datasets["suger"], facets_cols) 
