@@ -54,7 +54,7 @@
 52,38.0,other-special-issues_physically-harms-self,0.0,0.5,[-0.4  0.4]
 53,41.0,other-special-issues_sleep,-0.0,0.5,[-0.4  0.4]
 54,40.0,other-special-issues_self-care-hygiene,-0.0,0.5,[-0.4  0.4]
-55,18.0,communication_speech-quality,0.0,0.662,[-0.47  0.32]
+55,18.0,communication_speech-quality,-0.088,0.662,[-0.47  0.32]
 56,39.0,other-special-issues_physically-or-emotionally-harms-others,,,[nan nan]
 57,42.0,other-special-issues_substance-use,,,[nan nan]
 58,58.0,toileting,,,[nan nan]

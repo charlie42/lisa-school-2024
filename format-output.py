@@ -2,8 +2,9 @@ import pandas as pd
 import glob
 
 def get_avg_icc_from_df(df):
-    df.loc[df["ICC"]<0, "ICC"] = 0 # Replace negative values by 0
-    return df["ICC"].mean()
+    df_without_neg = df.copy()
+    df_without_neg.loc[df["ICC"]<0, "ICC"] = 0 # Replace negative values by 0
+    return df_without_neg["ICC"].mean()
 
 def append_means(path):
     for filename in glob.iglob(path + '**/*.csv', recursive=True):

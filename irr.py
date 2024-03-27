@@ -135,23 +135,53 @@ if __name__ == "__main__":
     # If enough teachres left:
     n_teachers = len(good_trr_clichy["Respondent Hash"].unique())
     if n_teachers >= 2:
+        # 1 admin
         good_trr_clichy = prepare_data_for_irr(
             good_trr_clichy, 
             facets_cols, 
             n_teachers_overlap=n_teachers-1 if n_teachers>2 else 2, # If more than two, then one less than all teachers 
             which_admin="1")
         irr_icc(good_trr_clichy, facets_cols, filename_base="clichy_admin_1_good_trr")
+        # 2 admin
+        good_trr_clichy = prepare_data_for_irr(
+            good_trr_clichy, 
+            facets_cols, 
+            n_teachers_overlap=n_teachers-1 if n_teachers>2 else 2, # If more than two, then one less than all teachers 
+            which_admin="2")
+        irr_icc(good_trr_clichy, facets_cols, filename_base="clichy_admin_2_good_trr")
+        # mean
+        good_trr_clichy = prepare_data_for_irr(
+            good_trr_clichy, 
+            facets_cols, 
+            n_teachers_overlap=n_teachers-1 if n_teachers>2 else 2, # If more than two, then one less than all teachers 
+            which_admin="mean")
+        irr_icc(good_trr_clichy, facets_cols, filename_base="clichy_admin_mean_good_trr")
     else:
         print("NOT ENOUGH TEACHERS WITH GOOD TRR IN CLICHY")
     
     n_teachers = len(good_trr_suger["Respondent Hash"].unique())
     if n_teachers >= 2:
+        # 1 admin
         good_trr_suger = prepare_data_for_irr(
             good_trr_suger, 
             facets_cols, 
             n_teachers_overlap=n_teachers-1 if n_teachers>2 else 2, # If more than two, then one less than all teachers 
             which_admin="1")
         irr_icc(good_trr_suger, facets_cols, filename_base="suger_admin_1_good_trr")
+        # 2 admin
+        good_trr_suger = prepare_data_for_irr(
+            good_trr_suger, 
+            facets_cols, 
+            n_teachers_overlap=n_teachers-1 if n_teachers>2 else 2, # If more than two, then one less than all teachers 
+            which_admin="2")
+        irr_icc(good_trr_suger, facets_cols, filename_base="suger_admin_2_good_trr")
+        # mean
+        good_trr_suger = prepare_data_for_irr(
+            good_trr_suger, 
+            facets_cols, 
+            n_teachers_overlap=n_teachers-1 if n_teachers>2 else 2, # If more than two, then one less than all teachers 
+            which_admin="mean")
+        irr_icc(good_trr_suger, facets_cols, filename_base="suger_admin_mean_good_trr")
     else: 
         print("NOT ENOUGH TEACHERS WITH GOOD TRR IN SUGER")
 
