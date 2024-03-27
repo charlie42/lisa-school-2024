@@ -97,7 +97,13 @@ def trr_icc_across_teachers(data, facets_cols, filename_base):
     data = transform_for_trr_across_teachers(data)
     print("DEBUG\n", data)
     icc_df = get_icc_df(data, facets_cols, raters_col="Admin Cumul Count", type="ICC3")
-    icc_df.to_csv(f"output/reliability/trr_per_teacher/{filename_base}_across_teachers.csv", float_format='%.3f')
+    icc_df.to_csv(f"output/reliability/trr_{filename_base}_across_teachers.csv", float_format='%.3f')
+
+def trr_across_teachers_both_schools(clichy, suger, facets_cols):
+    # Merge clichy and suger data and check ICC
+
+    merged = pd.concat([clichy, suger])
+    trr_icc_across_teachers(merged, facets_cols, "both_schools")
 
 if __name__ == "__main__":
 
@@ -108,7 +114,7 @@ if __name__ == "__main__":
     Path(save_path).mkdir(parents=True, exist_ok=True)
 
     facets_cols = [x for x in clichy.columns if x not in [
-        "Entry ID", "Actor type", "Subject ID", "Study ID", "Group ID", "Time", "Respondent Hash"
+        "Entry ID", "Actor type", "Subject ID", "Study ID", "Group ID", "Time", "Respondent Hash", "Grade"
     ]]
 
     clichy = keep_only_rated_twice(clichy)
@@ -121,4 +127,6 @@ if __name__ == "__main__":
     save_data_with_high_trr(suger, trr_icc_per_teacher_suger_dfs, filename_base="suger")
 
     trr_icc_across_teachers(clichy, facets_cols, filename_base="clichy")    
-    trr_icc_across_teachers(suger, facets_cols, filename_base="suger")    
+    trr_icc_across_teachers(suger, facets_cols, filename_base="suger")   
+
+    trr_across_teachers_both_schools(clichy, suger, facets_cols) 

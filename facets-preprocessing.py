@@ -100,6 +100,26 @@ class FACETSFormatter():
         self._transpose_items()
         return self.df
         
+def map_grade(df, mapping_df):
+    mapping_series = mapping_df.set_index("Study ID")["Grade"]
+    df["Grade"] = df["Study ID"].map(mapping_series)
+
+    print(mapping_series.sort_index())
+    print(df["Study ID"].sort_values())
+
+    return df
+
+def add_grade(suger_df, clichy_df):
+    # Add which grade the student is from (primary or middle)
+
+    mapping_df_suger = pd.read_csv("data/class_mapping_suger.csv")
+    mapping_df_clichy = pd.read_csv("data/class_mapping_clichy.csv")
+
+    mapped_suger = map_grade(suger_df, mapping_df_suger)
+    mapped_clichy = map_grade(clichy_df, mapping_df_clichy)
+
+    return mapped_suger, mapped_clichy
+
 if __name__ == "__main__":
     suger_data = json.load(open("data/suger.json", encoding='latin-1'), strict=False)
     clichy_data = json.load(open("data/clichy.json", encoding='latin-1'), strict=False)
@@ -107,6 +127,8 @@ if __name__ == "__main__":
     formatter = FACETSFormatter()
     suger_df = formatter.transform(suger_data)
     clichy_df = formatter.transform(clichy_data)
+    
+    suger_df, clichy_df = add_grade(suger_df, clichy_df)
 
     suger_df.to_csv("data/suger_formatted.csv")
     clichy_df.to_csv("data/clichy_formatted.csv")

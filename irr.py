@@ -80,7 +80,7 @@ if __name__ == "__main__":
     suger = pd.read_csv("data/suger_formatted.csv", index_col=0)
 
     facets_cols = [x for x in clichy.columns if x not in [
-        "Entry ID", "Actor type", "Subject ID", "Study ID", "Group ID", "Time", "Respondent Hash"
+        "Entry ID", "Actor type", "Subject ID", "Study ID", "Group ID", "Time", "Respondent Hash", "Grade"
     ]]
 
     irr_icc(clichy, facets_cols, n_teachers_overlap=3, filename_base="clichy")
