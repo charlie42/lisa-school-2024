@@ -66,10 +66,14 @@ class FACETSFormatter():
         
     def _map_ids(self):
         try:
-            id_mapping = pd.read_csv("data/id_mapping_facets.csv", index_col="subject_id")
+            id_mapping = pd.read_csv(
+                "data/id_mapping_facets.csv", 
+                sep=";", # Different seaprator from hospital data
+            )
+            id_mapping = id_mapping.dropna(axis=0).set_index("subject_id")
             self.df["Study ID"] = self.df["Subject ID"].map(
-            id_mapping["dislay_label"]
-        )
+                id_mapping["display_label"]  # Typoin hospital csv col name?
+            )
         except FileNotFoundError:
             print("No id_mapping_facets.csv file found, keeping Study ID empty")
             self.df["Study ID"] = np.nan
@@ -109,6 +113,12 @@ def map_grade(df, mapping_df):
 
     return df
 
+def split_by_grade(df):
+    primary = df[df["Grade"]=="primary"]
+    middle = df[df["Grade"]=="middle"]
+
+    return primary, middle
+
 def add_grade(suger_df, clichy_df):
     # Add which grade the student is from (primary or middle)
 
@@ -129,6 +139,10 @@ if __name__ == "__main__":
     clichy_df = formatter.transform(clichy_data)
     
     suger_df, clichy_df = add_grade(suger_df, clichy_df)
+    clichy_primary, clichy_middle = split_by_grade(clichy_df)
 
     suger_df.to_csv("data/suger_formatted.csv")
     clichy_df.to_csv("data/clichy_formatted.csv")
+    
+    clichy_primary.to_csv("data/clichy_primary_formatted.csv")
+    clichy_middle.to_csv("data/clichy_middle_formatted.csv")

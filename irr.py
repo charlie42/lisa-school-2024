@@ -97,7 +97,7 @@ def irr_icc(data, facets_cols, filename_base):
 
 if __name__ == "__main__":
 
-    clichy = pd.read_csv("data/clichy_formatted.csv", index_col=0)
+    clichy = pd.read_csv("data/clichy_middle_formatted.csv", index_col=0) # Only use middle school data
     suger = pd.read_csv("data/suger_formatted.csv", index_col=0)
 
     facets_cols = [x for x in clichy.columns if x not in [
